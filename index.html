@@ -1,52 +1,298 @@
-<section class="onboarding-card">
-  <h3>Word één van de eerste BOSSLADIES</h3>
-  <p class="onboarding-text">
-    Meld je aan voor de early access lijst en ontvang als eerste updates, sneak peeks en toegang tot de beta.
-  </p>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>BOSSLADY – Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <form
-    action="https://github.us3.list-manage.com/subscribe/post?u=6dd4a90c64339d1844e4b78e1&amp;id=2e924e5658&amp;f_id=0027c0e5f0"
-    method="post"
-    id="mc-embedded-subscribe-form"
-    name="mc-embedded-subscribe-form"
-    target="_blank"
-    novalidate
-    class="onboarding-form"
-  >
-    <div class="form-group">
-      <label for="mce-FNAME">Naam</label>
-      <input
-        id="mce-FNAME"
-        type="text"
-        name="FNAME"
-        placeholder="Jouw naam"
-      />
-    </div>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
 
-    <div class="form-group">
-      <label for="mce-EMAIL">E-mailadres</label>
-      <input
-        id="mce-EMAIL"
-        type="email"
-        name="EMAIL"
-        placeholder="jij@voorbeeld.nl"
-        required
-      />
-    </div>
+    :root {
+      --rose-soft: #E7B6C8;
+      --rose-strong: #C4798B;
+      --rose-blush: #D9A5AE;
 
-    <div aria-hidden="true" style="position:absolute; left:-5000px;">
-      <input
-        type="text"
-        name="b_6dd4a90c64339d1844e4b78e1_2e924e5658"
-        tabindex="-1"
-        value=""
-      />
-    </div>
+      --bg-cream: #F6F0EA;
+      --text-main: #4A3F3F;
+      --text-soft: #7a6a6a;
 
-    <button type="submit" class="primary-btn">
-      Ik wil early access ✨
-    </button>
-  </form>
-</section>
+      --border-light: #edd8dd;
+
+      --bubble-user: linear-gradient(135deg, #C4798B, #E7B6C8);
+      --bubble-coach: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(
+          circle at top left,
+          #f2e2e6 0,
+          #F6F0EA 40%,
+          #ffffff 100%
+        );
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 960px;
+      margin: 26px auto 40px;
+      padding: 30px 24px;
+      background: #ffffffee;
+      border-radius: 26px;
+      box-shadow: 0 20px 48px rgba(196, 141, 150, 0.18);
+      backdrop-filter: blur(12px);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .logo-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: var(--bubble-user);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display";
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      box-shadow: 0 12px 26px rgba(196, 141, 150, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .app-title {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--text-main);
+      letter-spacing: 0.06em;
+      font-family: "Playfair Display";
+      text-transform: uppercase;
+      animation: fadeInUp 0.7s ease-out;
+    }
+
+    .header-badge {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--rose-strong);
+      background: #fdf7f9;
+      border: 1px solid #f1d6de;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(196, 141, 150, 0.15);
+      animation: fadeInUp 0.8s ease-out;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .app-slogan {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      font-style: italic;
+      letter-spacing: 0.2px;
+      opacity: 0;
+      animation: fadeInSoft 0.9s ease-out forwards;
+    }
+
+    .app-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    @media (max-width: 820px) {
+      .app-main {
+        grid-template-columns: 1fr;
+      }
+      .app {
+        margin: 18px 10px 28px;
+        padding: 24px 18px;
+      }
+    }
+
+    .intro h2 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      font-family: "Playfair Display";
+      letter-spacing: 0.03em;
+    }
+
+    .intro p,
+    .intro ul {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .onboarding-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 22px 20px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 12px 32px rgba(203, 153, 162, 0.15);
+      animation: fadeInSoft 0.6s ease-out;
+    }
+
+    .onboarding-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      font-family: "Playfair Display";
+    }
+
+    .onboarding-text {
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .onboarding-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .form-group input {
+      border-radius: 12px;
+      border: 1px solid #ebd3d9;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      background: #fdfbfb;
+      transition: 0.2s;
+    }
+
+    .primary-btn {
+      padding: 11px 20px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose-strong), var(--rose-soft));
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(196, 141, 150, 0.3);
+      transition: 0.18s;
+    }
+
+    .app-footer {
+      margin-top: 26px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInSoft {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo-circle">BL</div>
+      <div>
+        <h1 class="app-title">BOSSLADY</h1>
+        <div class="header-badge">COMING SOON · EARLY ACCESS 2025</div>
+        <p class="app-slogan">
+          De zachte én strategische space voor jouw business, money, mindset & selfcare.
+        </p>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="intro">
+        <h2>Jouw feminiene growth space</h2>
+        <p>BOSSLADY is de app voor vrouwen die hun doelen en geld serieus nemen, maar hun zachte kant nooit willen verliezen.</p>
+        <p>Verwacht geen hustle-chaos, maar een rustige, stijlvolle plek waar je elke dag kunt intunen op:</p>
+        <ul>
+          <li>👑 heldere doelen & daily focus</li>
+          <li>💸 zachte money-check-ins & business-overzicht</li>
+          <li>🧠 mindset & mini-coaching op jouw thema’s</li>
+          <li>🤍 selfcare, reflectie & ruimte om te ademen</li>
+        </ul>
+      </section>
+
+      <section class="onboarding-card">
+        <h3>Word één van de eerste BOSSLADIES</h3>
+        <p class="onboarding-text">
+          Meld je aan voor de early access lijst en ontvang als eerste updates, sneak peeks en toegang tot de beta.
+        </p>
+
+        <!-- ⭐⭐⭐ MAILCHIMP FORM ⭐⭐⭐ -->
+        <form
+          action="https://github.us3.list-manage.com/subscribe/post?u=6dd4a90c64339d1844e4b78e1&amp;id=2e924e5658&amp;f_id=0027c0e5f0"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          novalidate
+          class="onboarding-form"
+        >
+          <div class="form-group">
+            <label for="mce-FNAME">Naam</label>
+            <input id="mce-FNAME" type="text" name="FNAME" placeholder="Jouw naam" />
+          </div>
+
+          <div class="form-group">
+            <label for="mce-EMAIL">E-mailadres</label>
+            <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="jij@voorbeeld.nl" required />
+          </div>
+
+          <!-- Honeypot -->
+          <div aria-hidden="true" style="position:absolute; left:-5000px;">
+            <input type="text" name="b_6dd4a90c64339d1844e4b78e1_2e924e5658" tabindex="-1" value="" />
+          </div>
+
+          <button type="submit" class="primary-btn">
+            Ik wil early access ✨
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      © 2025 BOSSLADY · Made with love by Lynn
+    </footer>
+  </div>
+</body>
+</html>
+
 
 
