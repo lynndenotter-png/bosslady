@@ -1,0 +1,138 @@
+.module-wrapper {
+  padding: 24px;
+  animation: fadeInSoft 0.5s ease;
+}
+
+/* Gebruik dezelfde look & feel als onboarding-card */
+.module-inner-card {
+  background: #ffffffee;
+  padding: 24px 22px;
+  border-radius: 26px;
+  box-shadow: 0 20px 48px rgba(196, 141, 150, 0.18);
+}
+
+/* Als je liever direct dit gebruikt, kun je in je modules <div className="onboarding-card"> gebruiken,
+   maar deze geeft dezelfde stijl binnen de module-wrapper. */
+
+.module-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.module-intro {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 18px;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: var(--rose-strong);
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Kaartjes binnen modules */
+.module-section {
+  background: #ffffffee;
+  padding: 16px 18px;
+  border-radius: 20px;
+  box-shadow: 0 10px 26px rgba(196, 121, 139, 0.14);
+  margin-bottom: 14px;
+}
+
+.module-section h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--text-main);
+  font-family: "Playfair Display", serif;
+}
+
+.module-section p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* Lock / Premium notice */
+.locked-box {
+  border-radius: 20px;
+  padding: 14px 16px;
+  background: rgba(196, 121, 139, 0.06);
+  margin-bottom: 18px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+/* Lists (bijv. Skill Boosters lijst) */
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.module-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffee;
+  padding: 12px 14px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(196, 121, 139, 0.12);
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.secondary-button {
+  border: 1px solid var(--rose-strong);
+  background: white;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--rose-strong);
+}
+
+/* Header (komt uit App.jsx) – matching met bestaande styling */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background: radial-gradient(
+    circle at top left,
+    #f2e2e6 0,
+    #f6f0ea 40%,
+    #ffffff 100%
+  );
+}
+
+.app-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.app-plan {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.plan-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--rose-strong);
+  background: white;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--rose-strong);
+}

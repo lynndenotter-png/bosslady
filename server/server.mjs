@@ -6,15 +6,24 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5001;
-
 const apiKey = process.env.OPENAI_API_KEY;
 
 if (!apiKey) {
-  console.warn("⚠️ OPENAI_API_KEY mist. Vul deze in je .env in.");
+  console.warn("⚠️ OPENAI_API_KEY mist. Vul deze in je .env");
 }
 
-app.use(cors());
+// CORS goed instellen voor jouw frontend
+app.use(
+  cors({
+    origin: "http://localhost:5174",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
+// JSON body’s lezen
 app.use(express.json());
+
 
 app.get("/", (req, res) => {
   res.send("BossLady AI server draait ✅");

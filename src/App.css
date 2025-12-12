@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+
+/* TITLES WITH SERIF FONT */
 .intro h2,
 .onboarding-card h3,
 .chat-header h2 {
@@ -28,17 +30,17 @@
 
 :root {
   /* PRIMARY PALETTE */
-  --rose-soft: #E7B6C8;   /* hoofdaccent */
-  --rose-strong: #C4798B; /* sterk accent */
-  --rose-blush: #D9A5AE;  /* lichte steuntint */
+  --rose-soft: #e7b6c8; /* main accent */
+  --rose-strong: #c4798b; /* strong accent */
+  --rose-blush: #d9a5ae; /* light support tint */
 
-  --bg-cream: #F6F0EA;    /* achtergrond */
-  --text-main: #4A3F3F;   /* hoofdtekst */
-  --text-soft: #7a6a6a;   /* secundaire tekst */
+  --bg-cream: #f6f0ea; /* background */
+  --text-main: #4a3f3f; /* main text */
+  --text-soft: #7a6a6a; /* secondary text */
 
   --border-light: #edd8dd;
 
-  --bubble-user: linear-gradient(135deg, #C4798B, #E7B6C8);
+  --bubble-user: linear-gradient(135deg, #c4798b, #e7b6c8);
   --bubble-coach: #ffffff;
 }
 
@@ -53,10 +55,12 @@ body {
   min-height: 100vh;
   font-family: "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left,
-      #f2e2e6 0,
-      #F6F0EA 40%,
-      #ffffff 100%);
+  background: radial-gradient(
+    circle at top left,
+    #f2e2e6 0,
+    #f6f0ea 40%,
+    #ffffff 100%
+  );
   color: var(--text-main);
 }
 
@@ -111,12 +115,37 @@ body {
   animation: fadeInUp 0.7s ease-out;
 }
 
-
-
 .app-subtitle {
   margin: 4px 0 0;
   font-size: 0.95rem;
   color: var(--text-soft);
+}
+
+/* BADGE + SLOGAN */
+
+.header-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--rose-strong);
+  background: #fdf7f9;
+  border: 1px solid #f1d6de;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(196, 141, 150, 0.15);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.app-slogan {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  font-style: italic;
+  letter-spacing: 0.2px;
+  opacity: 0;
+  animation: fadeInSoft 0.9s ease-out forwards;
 }
 
 /* MAIN GRID */
@@ -217,6 +246,43 @@ body {
   outline: none;
 }
 
+/* GOAL CHIPS */
+
+.goal-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.goal-chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(203, 153, 162, 0.08);
+  user-select: none;
+}
+
+.goal-chip:hover {
+  background: #fdf7f9;
+  border-color: var(--rose-soft);
+  box-shadow: 0 6px 20px rgba(203, 153, 162, 0.15);
+  transform: translateY(-1px);
+}
+
+.goal-chip.active {
+  background: linear-gradient(135deg, var(--rose-strong), var(--rose-soft));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(196, 141, 150, 0.35);
+  transform: translateY(-1px);
+}
+
 /* BUTTONS */
 
 .primary-btn,
@@ -248,6 +314,7 @@ body {
 }
 
 .secondary-btn {
+  margin-top: 10px;
   padding: 9px 18px;
   background: #fff;
   border: 1px solid var(--rose-soft);
@@ -347,6 +414,7 @@ body {
 .chat-input-row {
   display: flex;
   gap: 10px;
+  margin-top: 8px;
 }
 
 .chat-input-row input {
@@ -378,29 +446,77 @@ body {
   color: var(--text-soft);
   font-size: 0.78rem;
 }
-.header-badge {
-  display: inline-block;
-  margin-top: 4px;
-  padding: 4px 12px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--rose-strong);
-  background: #fdf7f9;
-  border: 1px solid #f1d6de;
+/* Layout wrapper so content doesn't sit under the bottom nav */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main scroll area – leave space at the bottom for nav */
+.app-content {
+  flex: 1;
+  padding-bottom: 90px; /* enough breathing room */
+}
+
+
+/* Sticky bottom navigation */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 10px 0;
+  background: linear-gradient(
+    to top,
+    rgba(246, 240, 234, 1),
+    rgba(246, 240, 234, 0.92)
+  );
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bottom-nav-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  border: none;
+  background: #ffffff;
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(196, 141, 150, 0.15);
-  animation: fadeInUp 0.8s ease-out;
-}
-
-
-.app-slogan {
-  margin-top: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.7rem;
   color: var(--text-soft);
-  font-style: italic;
-  letter-spacing: 0.2px;
-  opacity: 0;
-  animation: fadeInSoft 0.9s ease-out forwards;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(196, 121, 139, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s;
 }
 
+.bottom-nav-item.active {
+  background: var(--rose-soft);
+  color: white;
+  box-shadow: 0 10px 28px rgba(196, 121, 139, 0.28);
+}
+
+.bottom-nav-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.bottom-nav-label {
+  font-size: 0.75rem;
+  margin-top: -2px; /* slight upward adjustment */
+}

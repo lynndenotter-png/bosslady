@@ -1,0 +1,147 @@
+/* Make home main area flow vertically */
+.home-main {
+  animation: fadeInSoft 0.6s ease;
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Centered intro above everything */
+.home-intro-centered {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+}
+
+.home-intro-centered h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.home-intro-centered p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+/* Text style matching your BOSSLADY design */
+.home-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+/* Top card area */
+.home-top-card {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+/* MOBILE: stacked under each other */
+.home-top-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* DESKTOP: side-by-side */
+@media (min-width: 768px) {
+  .home-top-columns {
+    flex-direction: row;
+  }
+
+  .home-section-block {
+    flex: 1;
+  }
+}
+
+.home-section-block h3 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 6px;
+  color: var(--rose-strong);
+}
+
+.home-section-block .quote {
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* Modules section */
+.home-modules-card {
+  margin-top: 4px;
+}
+
+/* Module grid styling */
+.modules-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .modules-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.module-card {
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+  box-shadow: 0 8px 20px rgba(196, 121, 139, 0.08);
+}
+
+.module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(196, 121, 139, 0.14);
+  border-color: rgba(196, 121, 139, 0.35);
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.module-header h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 0.98rem;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.module-tag {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--rose-soft);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.module-description {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin: 0 0 6px;
+}
+
+.module-link {
+  font-size: 0.8rem;
+  color: var(--rose-strong);
+}
